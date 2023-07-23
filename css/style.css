@@ -47,6 +47,14 @@ section{
     max-width: 1200px;
     padding: 2rem;
 }
+.title{
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 3rem;
+    color: var(--black);
+    text-transform: uppercase;
+    /*text-decoration: underline;*/
+}
 .btn,
 .delete-btn{
     margin-top: 1rem;
@@ -203,12 +211,13 @@ section{
 .credit span{
     color: var(--yellow);
 }
-
+/* swipper */
 .hero .slide {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .hero .slide .image{
@@ -238,6 +247,48 @@ section{
 .swiper-pagination-bullet-active{
     background-color: var(--yellow);
 }
+
+/* swiper end*/
+
+.category .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(27rem, 1fr));
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+.category .box-container .box{
+    border: var(--border);
+    padding: 2rem;
+    text-align: center;
+}
+
+.category .box-container .box img{
+    height: 10rem;
+    width: 100%;
+    object-fit: contain;
+    
+}
+.category .box-container .box h3{
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+}
+.category .box-container .box:hover{
+    background-color: var(--black);
+
+}
+.category .box-container .box:hover img{
+    filter: invert(1);  /* bach lli noir ywlli blanche w background twli noir*/
+}
+.category .box-container .box:hover h3{
+    color: var(--white);
+}
+
+.products .box-container{
+    
+}
+
 
 
 
@@ -283,5 +334,11 @@ section{
     }
     .header .flex .logo{
         font-size: 1.8rem;
+    }
+    .title{
+        font-size: 3rem;
+    }
+    .hero .slide .content h3{
+        font-size: 5rem;
     }
 }
