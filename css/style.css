@@ -346,8 +346,8 @@ section{
 .products .box-container .box .flex{
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 .products .box-container .box .flex .price{
     margin-right: auto;
@@ -364,11 +364,73 @@ section{
     font-size: 1.8rem;
     color: var(--black);
 }
+.products .box-container .box .flex .fa-edit{
+    width: 5rem;
+    background-color: var(--yellow);
+    color: var(--black);
+    cursor: pointer;
+    font-size: 1.8rem;
+    height: 4.5rem;
+    border: var(--border);
+    line-height: 4.3rem;
+}
+.products .box-container .box .flex .fa-edit:hover{
+    background-color: black;
+    color: var(--white);
+}
+.products .box-container .box .fa-times{
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background-color: var(--red);
+    color: var(--white);
+    border: var(--border);
+    line-height: 3.8rem;
+    height: 3.8rem;
+    width: 3.8rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+.products .box-container .box .sub-total{
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    color: var(--light-color);
+}
+.products .box-container .box .sub-total span{
+    color: var(--red);
+}
+
+.products .box-container .box .fa-times:hover{
+    background-color: black;
+    color: var(--white);
+}
+
+
 .products .more-btn{
     text-align: center;
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+.products .cart-total{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    border: var(--border);
+    padding: 1rem;
+}
+.products .cart-total p{
+    font-size: 2rem;
+    color: var(--light-color);
+    text-transform: capitalize;
+}
+.products .cart-total p span{
+    color: var(--red);
+}
+.products .cart-total .btn{
+    margin-top: 0;
 }
 
 .about .row{
@@ -512,8 +574,29 @@ section{
 }
 
 
-
-
+/* search page */
+.search-form form{
+    display: flex;
+    gap: 1.3rem;
+}
+.search-form form .box{
+    width: 100%;
+    border: var(--border);
+    padding: 1.1rem;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+.search-form form .fa-search{
+    width: 6rem;
+    background-color: var(--black);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 2.1rem;
+}
+.search-form form .fa-search:hover{
+    background-color: var(--yellow);
+    color: var(--black);
+}
 
 
 
@@ -623,8 +706,10 @@ section{
         font-size: 5rem;
     }
     .heading h3{
-        font-size: 3.8rem;
+        font-size: 3.5rem;
     }
-    
+    .products .cart-total{
+        justify-content: center;
+    }    
 
 }
