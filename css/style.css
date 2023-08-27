@@ -415,7 +415,7 @@ section{
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /* retour a la ligne ila mab9ach lblassa*/
     justify-content: space-between;
     margin-bottom: 3rem;
     border: var(--border);
@@ -600,6 +600,47 @@ section{
 
 
 
+.checkout form{
+    max-width: 50rem;
+    margin: 0 auto;
+    border: var(--border);
+    padding: 2rem;
+}
+.checkout form h3{
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.checkout form .cart-items{
+    background-color: var(--black);
+    padding: 2rem;
+}
+.checkout form .cart-items h3{
+    color: var(--white);
+}
+.checkout form .cart-items p{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin: 1rem 0;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    
+}
+.checkout form .cart-items p .name{
+    color: var(--light-color);
+}
+.checkout form .cart-items p .price{
+    color: var(--yellow);
+}
+.checkout form .cart-items .grand-total{
+    background-color: var(--white);
+    padding: 1.5rem;
+}
+.checkout form .cart-items .grand-total .price{
+    color: var(--red);
+}
 
 
 
