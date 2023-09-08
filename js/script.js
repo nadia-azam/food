@@ -17,3 +17,17 @@ window.onscroll = () => {
     profile.classList.remove('active');
     navbar.classList.remove('active');
 }
+
+
+function loader(){
+    document.querySelector('.loader').style.display = 'none';
+}
+
+//notice 1000 = 1seconde
+//notice 2000 = 2secondes
+
+function fadeOut(){
+    setInterval(loader , 2000);
+}
+
+window.onload = fadeOut();

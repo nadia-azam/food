@@ -54,6 +54,25 @@
 
     <!-- header section ends -->
 
+    <section class="form-container">
+        <form action="" method="post">
+            <h3>your address</h3>
+            <input type="text" class="box" placeholder="Rue alroqiy, Route Taza, oujda,Morocco" required maxlength="50" name="flat">
+            <input type="text" class="box" placeholder="street name" required maxlength="50" name="street">
+            <input type="text" class="box" placeholder="city name" required maxlength="50" name="city">
+            <input type="text" class="box" placeholder="state name" required maxlength="50" name="state">
+            <input type="text" class="box" placeholder="country name" required maxlength="50" name="country">
+            <input type="number" class="box" placeholder="pin code" required max="99999" min="0" onkeydown="if(this.value.lenght == 6) return false;" name="pin_code">
+            <input type="submit" value="save address" name="submit" class="btn">
+       
+        </form>
+    </section>
+
+
+
+
+
+
 
     <!-- footer section starts -->
     <footer class="footer">
@@ -90,6 +109,12 @@
 
     </footer>
     <!-- footer section ends -->
+
+
+    <div class="loader">
+        <img src="images/loader.gif" alt="">
+    </div>
+
 
 
 <!-- custom js file links -->

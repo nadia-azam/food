@@ -54,6 +54,22 @@
 
     <!-- header section ends -->
 
+    <section class="form-container">
+        <form action="" method="post">
+            <h3>update profile</h3>
+            <input type="text" name="name" required placeholder="enter your name" class="box" maxlength="50" value="azam nadia">
+            <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50" value="azam.nadia.2002@gmail.com">
+            <input type="password" name="pass" placeholder="enter your old password" class="box" maxlength="50" oninput="this.value=this.value.replace(/\s/g,'')">
+            <input type="password" name="pass"  placeholder="enter your new password" class="box" maxlength="50" oninput="this.value=this.value.replace(/\s/g,'')">
+            <input type="password" name="cpass"  placeholder="confirm your new password" class="box" maxlength="50" oninput="this.value=this.value.replace(/\s/g,'')">
+            <input type="submit" value="update now" class="btn">
+        </form>
+    </section>
+
+
+
+
+
 
     <!-- footer section starts -->
     <footer class="footer">
@@ -90,6 +106,11 @@
 
     </footer>
     <!-- footer section ends -->
+
+    <div class="loader">
+        <img src="images/loader.gif" alt="">
+    </div>
+
 
 
 <!-- custom js file links -->

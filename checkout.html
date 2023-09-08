@@ -78,15 +78,16 @@
             <p><i class="fas fa-envelope"></i><span>azam.nadia.2002@gmail.com</span></p>
             <a href="update_profile.html" class="btn">update info</a>
             <h3>delivery address</h3>
-            <p><i class="fas fa-map-marker-alt"><span>Rue alroqiy, Route Taza, oujda,Morocco</span></i></p>
+            <p><i class="fas fa-map-marker-alt"></i><span class="adress">Rue alroqiy, Route Taza, oujda,Morocco</span></p>
             <a href="update_address.html" class="btn">update address</a>
-            <select name="method" class="bow" required>
+            <select name="method" class="box" required>
                 <option value="" disabled selected>select payment method --</option>
                 <option value="cash on delivery" >cash on delivery</option>
                 <option value="credit cart" >credit cart</option>
                 <option value="paytem" >paytem</option>
                 <option value="paypal" >paypal</option>
             </select>
+            <input type="submit" value="place order" class="btn" style="width: 100% ; background: var(--red); color: var(--white);">
         </div>
 
     </form>
@@ -133,6 +134,12 @@
 
     </footer>
     <!-- footer section ends -->
+
+
+    <div class="loader">
+        <img src="images/loader.gif" alt="">
+    </div>
+
 
 
 <!-- custom js file links -->
