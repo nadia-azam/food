@@ -1,9 +1,22 @@
+<?php
+include 'components/connect.php';
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'] ;
+}else{
+    $user_id='';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+
     <!-- swiper-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
@@ -13,48 +26,15 @@
     <!-- custom css file link -->
     <link rel="stylesheet" href="css/style.css">
 
+    
+
 </head>
 <body>
-
-    <!-- headersection starts -->
-
-    <header class="header">
-
-        <section class="flex">
-
-            <a href="home.html" class="logo">yum-yum 😋</a>
-            <nav class="navbar">
-                <a href="home.html">home</a>
-                <a href="about.html">about</a>
-                <a href="menu.html">menu</a>
-                <a href="orders.html">orders</a>
-                <a href="contact.html">contact</a>
-            </nav>
-
-            <div class="icons">
-                <a href="search.html"><i class="fas fa-search"></i></a>
-                <a href="cart.html"><i class="fas fa-shopping-cart"></i><span>(3)</span></a>
-                <div id="user-btn" class="fas fa-user"></div>
-                <div id="menu-btn" class="fas fa-bars"></div>
-            </div>
-
-
-            <div class="profile">
-                <p class="name">nadia azam</p>
-                <div class="flex">
-                    <a href="profile.html" class="btn">profile</a>
-                    <a href="#" class="delete-btn">logout</a>
-                </div>
-                <p class="account"><a href="login.html">login</a> or <a href="register.html">register</a></p>
-            </div>
-
-
-        </section>
-
-
-    </header>
-
-    <!-- header section ends -->
+    <!--header section starts -->
+    <?php 
+        include './components/user_header.php';
+    ?>
+    <!--header section ends -->
 
     <!-- hero section starts -->
     <section class="hero">
@@ -111,22 +91,22 @@
 
         <div class="box-container">
 
-            <a href="#" class="box">
+            <a href="category1.php?category=fast food" class="box">
                 <img src="images/cat-1.png" alt="">
                 <h3>fast food</h3>
             </a>
 
-            <a href="#" class="box">
+            <a href="category1.php?category=main dishes" class="box">
                 <img src="images/cat-.png" alt="">
                 <h3>main dishes</h3>
             </a>
 
-            <a href="#" class="box">
+            <a href="category1.php?category=drinks" class="box">
                 <img src="images/cat-3.png" alt="">
                 <h3>drinks</h3>
             </a>
 
-            <a href="#" class="box">
+            <a href="category1.php?category=desserts" class="box">
                 <img src="images/cat-4.png" alt="">
                 <h3>dessert</h3>
             </a>
@@ -142,11 +122,37 @@
     <!-- home product section starts -->
     <section class="products">
 
-        <h1 class="title">latest dishes</h1>
+        <h1 class="title">latest food</h1>
 
         <div class="box-container">
+            <?php
+            $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6");
+            $select_products->execute();
+            if($select_products->rowCount() == 0){
+                while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC))
+                {
+            ?>
+            <form action="" method="POST" class="box">
+                <input type="hidden" name="pid" value="<?= $fetch_products['id'];?>">
+                <input type="hidden" name="name" value="<?= $fetch_products['name'];?>">
+                <input type="hidden" name="price" value="<?= $fetch_products['price'];?>">
+                <input type="hidden" name="image" value="<?= $fetch_products['image'];?>">
 
-            <form action="" method="post" class="box">
+                <a href="quick_view.php?pid=<?= $fetch_products['id'];?>" class="fas fa-eye"></a>
+                <button type="submit" name="add_to_cart" class="fas fa-shopping-cart"></button>
+                <img src="uploaded_img/<?= $fetch_products['image'];?>" alt="">
+            </form>
+            
+            <?php
+                }
+            }else{
+
+            }
+            ?>
+
+
+
+            <!--<form action="" method="post" class="box">
                 
                 <button type="submit" class="fas fa-eye" name="quick_view"></button>
                 <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
@@ -233,7 +239,7 @@
         </div>
         <div class="more-btn">
             <a href="menu.html" class="btn">view all</a>
-        </div>
+        </div>-->
 
 
 
@@ -245,65 +251,39 @@
 
 
 
+
+
+
+
     <!-- footer section starts -->
-    <footer class="footer">
-    <section class="grid">
-
-        <div class="box">
-            <img src="images/email-icon.png" alt="">
-            <h3>our email</h3>
-            <a href="mailto:azam.nadia.2002@gmail.com">nadia@gmail.com</a>
-            <a href="mailto:azam.nadia.2002@gmail.com">azam.nadia.2002@gmail.com</a>
-        </div>
-
-        <div class="box">
-            <img src="images/clock-icon.png" alt="">
-            <h3>opening hours</h3>
-            <p>00:07am to 00:10pm</p>
-        </div>
-
-        <div class="box">
-            <img src="images/map-icon.png" alt="">
-            <h3>our address</h3>
-            <a href="#">Morroco , oujda , lotissement ir ali route taza n 45</a>
-        </div>
-
-        <div class="box">
-            <img src="images/phone-icon.png" alt="">
-            <h3>contact us</h3>
-            <a href="tel:+2126080251522">+212 6 08 25 15 22</a>
-            <a href="tel:+2126080251522">+212 6 08 25 15 22</a>
-        </div>
-    </section>
-
-    <div class="credit">created by <span>mr. nadia azam</span> | all rights deserved§</div>
-
-    </footer>
+    <?php
+    include 'components/footer.php';
+    ?>
     <!-- footer section ends -->
 
+    <!-- swpier-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <div class="loader">
-        <img src="images/loader.gif" alt="">
-    </div>
+    <script>
+        var swiper = new Swiper(".hero-slider",{
+            loop:true,
+            grabCursor: true, 
+            effect: "flip",
+            pagination: {
+                el: ".swiper-pagination",
+                clickable:true,
+            },
+        });
+    </script>
 
 
-<!-- swpier-->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-<script>
-    var swiper = new Swiper(".hero-slider",{
-        loop:true,
-        grabCursor: true, 
-        effect: "flip",
-        pagination: {
-            el: ".swiper-pagination",
-            clickable:true,
-        },
-    });
-</script>
-
-<!-- custom js file links -->
-<script src="js/script.js"></script>
+   <script src="js/script.js"></script>
+   
     
 </body>
+
+
+
+
 </html>
